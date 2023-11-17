@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build:
+        context: .
+        dockerfile: ./compose/Dockerfile
+    image: statcollector_fastapi
+    container_name: statcollector_fastapi
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - MODULE_NAME=main
+      - VARIABLE_NAME=app
+      - PORT=8000
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
