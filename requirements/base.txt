@@ -1,0 +1,40 @@
+# Core
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+python-multipart
+email-validator
+
+# Database
+clickhouse-connect
+aioredis
+celery
+
+# Security
+python-jose
+passlib
+bcrypt
+cryptography
+
+# API utilities
+fastapi-utils
+fastapi-cache
+fastapi-limiter
+
+# Monitoring & Logging
+python-json-logger
+sentry-sdk
+prometheus-client
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-instrumentation-fastapi
+structlog
+
+# Serialization
+orjson
+msgpack
+
+# Utils
+python-dateutil
+pytz

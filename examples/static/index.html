@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Static Site Example</title>
+</head>
+<body>
+    <h1>Welcome to my site</h1>
+    
+    <!-- Basic integration -->
+    <script src="https://cdn.statcollector.com/collector.js"></script>
+    <script>
+        StatCollector.init('your-api-key');
+    </script>
+    
+    <!-- Advanced integration with custom configuration -->
+    <script>
+        StatCollector.init('your-api-key', {
+            endpoint: 'https://your-custom-endpoint.com',
+            debug: true,
+            reportingEndpoint: 'https://your-error-reporting.com'
+        });
+    </script>
+</body>
+</html>

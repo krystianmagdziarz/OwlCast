@@ -1,0 +1,14 @@
+-r base.txt
+
+# Production
+gunicorn
+uvicorn[standard]
+supervisor
+
+# Performance
+ujson
+orjson
+aiofiles
+
+# Security
+secure

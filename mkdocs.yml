@@ -1,0 +1,75 @@
+site_name: StatCollector Documentation
+site_description: Documentation for StatCollector API and client library
+site_author: StatCollector Team
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: datetime
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        pl: Polski
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - API Reference:
+    - Overview: api/overview.md
+    - Authentication: api/authentication.md
+    - Endpoints: api/endpoints.md
+    - Rate Limiting: api/rate-limiting.md
+  - Client Library:
+    - Installation: client/installation.md
+    - Configuration: client/configuration.md
+    - Usage: client/usage.md
+    - Advanced: client/advanced.md
+  - Deployment:
+    - Requirements: deployment/requirements.md
+    - Docker: deployment/docker.md
+    - Configuration: deployment/configuration.md
+  - Contributing:
+    - Guidelines: contributing/guidelines.md
+    - Development Setup: contributing/development.md

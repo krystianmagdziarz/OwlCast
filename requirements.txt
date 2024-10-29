@@ -1,3 +1,9 @@
-aioredis==2.0.1
 fastapi
 uvicorn
+aioredis
+clickhouse-connect
+fastapi-utils
+fastapi-cache
+fastapi-limiter
+pydantic
+requests

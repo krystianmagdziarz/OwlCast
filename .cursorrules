@@ -1,0 +1,195 @@
+# Product Requirements Document
+
+## Project Overview
+
+We are building a service that will collect statistics from websites. The service will be used to track the number of views and other statistics for each page on a website.
+Statistics will be collected from multiple websites and stored in a clickhouse database. The service will be used to retrieve and analyze the statistics. 
+Javascript is used to collect the statistics from the websites and send them to the service (using a POST request), but the service will be designed to be stateless and scalable.
+
+
+## Business value
+
+Main goal is to provide a statistic service for users to use with their websites using REST API.
+Users will be able to render its own dashboard using the collected data, and use it to make data-driven decisions.
+This will help users to integrate statistics with their own applications.
+
+
+## Constraints
+
+* It should be able to handle a large number of websites and pages, and be able to scale horizontally to handle the load. 
+* It should be designed to be secure and to protect the privacy of the websites.
+* It should be designed to be flexible and easy to extend with new features.
+* It should be designed to be easy to understand and maintain.
+* It should be designed to be easy to deploy and scale.
+* It should be designed to be easy to monitor and troubleshoot.
+* It should be designed to be easy to backup and restore.
+* It should be designed to be easy to integrate with other services.
+* It should be designed to be easy to use and to be self-documenting.
+* It should work with cached pages (e.g. pages that are cached in the browser), cloudflare caching, static web pages, etc.
+
+## Core functionality
+
+* Save the statistics for a page.
+* Retrieve the statistics for a page.
+* Retrieve the statistics for all pages.
+* Retrieve the statistics for a domain.
+* Retrieve the statistics for all domains.
+* Retrieve the statistic in a time range and in a time period (e.g. last 24 hours, last 7 days, last 30 days, etc.).
+* Collect the statistic in time intervals (e.g. every 10 seconds, every 1 minute, every 1 hour, etc.).
+
+## Collecting statistics metrics
+
+* Number of views
+* Number of unique visitors
+* Bounce rate
+* Average time on page
+* Percentage scroll depth
+* Mobile / desktop
+* Referrer
+* User agent
+* Screen size
+* Language
+* Country
+* City
+* ISP
+
+## Tech stack
+
+* FastAPI
+* Clickhouse
+* Redis
+* Celery
+* Docker Compose
+* Nginx
+
+## File structure
+
+📦 statcollector
+├── 📂 app # Main application package
+│   ├── 📂 api # API endpoints and routing
+│   │   ├── 📂 v1 # API version 1 implementation
+│   │   │   ├── __init__.py
+│   │   │   ├── endpoints
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── statistics.py
+│   │   │   │   └── health.py
+│   │   │   └── dependencies.py
+│   │   └── __init__.py
+│   ├── 📂 core # Core functionality (config, security, events)
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   └── events.py
+│   ├── 📂 db # Database connections and models
+│   │   ├── __init__.py
+│   │   ├── clickhouse.py
+│   │   └── redis.py
+│   ├── 📂 models # Database models and table definitions
+│   │   ├── __init__.py
+│   │   └── statistics.py
+│   ├── 📂 schemas # Pydantic models for request/response validation
+│   │   ├── __init__.py
+│   │   └── statistics.py
+│   ├── 📂 services # Business logic layer
+│   │   ├── __init__.py
+│   │   └── statistics.py
+│   ├── 📂 utils # Utility functions and helpers
+│   │   ├── __init__.py
+│   │   └── helpers.py
+│   ├── __init__.py
+│   └── main.py
+├── 📂 client # JavaScript/TypeScript client implementation
+│   ├── package.json
+│   ├── src # Client source code
+│   │   ├── collector.ts
+│   │   └── types.ts
+│   └── tsconfig.json
+├── 📂 tests # Test suite
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_api # API endpoint tests
+│   │   └── test_statistics.py
+│   └── test_services # Business logic tests
+│       └── test_statistics.py
+├── 📂 docs # Project documentation
+│   ├── index.md
+│   └── api.md
+├── 📂 compose # Docker compose configurations
+│   ├── local # Local development setup
+│   │   ├── Dockerfile
+│   │   └── entrypoint.sh
+│   └── production # Production deployment setup
+│       ├── Dockerfile
+│       └── entrypoint.sh
+├── 📂 scripts # Utility scripts for development
+│   ├── lint.sh
+│   └── test.sh
+├── .env.example
+├── .gitignore
+├── docker-compose.yml
+├── local.yml
+├── production.yml
+├── pyproject.toml
+├── requirements.txt
+└── README.md
+
+Use best practices for the file structure of fastapi project.
+
+
+## API
+
+* Serve the statistics data using a REST API.
+* Use async code to serve the statistics data.
+* Use clickhouse to store the statistics data.
+* Serve endpoints to visualize the statistics data (e.g. number of views per day, number of views per page, etc.).
+* Make sure to validate the input data to avoid storing incorrect data.
+* Use pydantic to validate the input data.
+* Use fastapi-utils to add extra functionality to the endpoints.
+* Use fastapi-cache to cache the results.
+* Use fastapi-limiter to limit the number of requests.
+* Make endpoints for collecting the statistics data for charts.
+
+## Writing tests
+
+* Please write tests first before writing the code (TDD).
+
+## Client side
+
+* Use javascript to collect the statistics data and send them to the service (using a POST request).
+* Make client code that will be hard to detect by blockers.
+* Use best practices for the client side code.
+* Use axios to make the requests to the service.
+* Use local storage to store the data locally if the user has disabled cookies.
+* Use service workers to collect the statistics data when the user is offline.
+* Use reporting services to report errors and issues.
+* Use best practices for the javascript code.
+
+## Code quality
+
+* Please use black to format the code.
+* Please use isort to sort the imports.
+* Please use flake8 to check the code for errors.
+* Please use mypy to check the code for type errors.
+
+## Documentation
+
+* Please use mkdocs to document the project.
+* Please use mkdocs-material to style the documentation.
+* Please use mkdocs-static-i18n to add internationalization to the documentation.
+* Please use mkdocs-git-revision-date-localized-plugin to add the last updated date to the documentation.
+* Please use mkdocs-awesome-pages-plugin to add the pages to the documentation.
+* Do not write comments in the code, but use good variable names and function names.
+
+## Clickhouse
+
+* Use clickhouse-connect to connect to the clickhouse database.
+* Use correct engine for the tables.
+* Make code to create the tables if they don't exist.
+* Use correct data types for the columns.
+* Make code to create the columns if they don't exist.
+* Make sure to optimize the tables for the statistics data.
+
+## Security
+
+* Use API keys to authenticate the requests.
+* Use rate limiting to avoid abuse (high load).
